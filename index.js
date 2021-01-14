@@ -3,23 +3,11 @@ window.addEventListener('keydown', (e) => {
     const key = document.querySelector(`.key[data-key="${e.keyCode}"`);
 
     if (!audio) return;
+    audio.currentTime = 0;
 
 
-
-
-    let keys = document.querySelector(".keys");
-
-
-    let active = document.querySelector(".playing");
-    if (key.classList.contains('key')) {
-        if (active) {
-            key.classList.remove('playing');
-        } 
-            key.classList.add('playing');
-        
-
-    }  
-
-
+    let keys = document.querySelectorAll('.key');
+    keys.forEach((key) => key.classList.remove('playing'));
+    key.classList.add('playing');
     audio.play();
 });
